@@ -1,0 +1,50 @@
+Find palindromic path of given length K in a complete Binary Weighted Graph.
+
+Given a complete directed graph having N vertices, whose edges weighs ‘1’ or ‘0’, the task is to find a path of length exactly K which is a palindrome. Print “YES” if possible and then the path, otherwise print “NO“. 
+
+
+   
+   Example: 
+
+Input: N = 3, K = 4
+edges[] =  {{{1, 2}, ‘1’}, {{1, 3}, ‘1’}, {{2, 1}, ‘1’}, {{2, 3}, ‘1’}, {{3, 1}, ‘0’}, {{3, 2}, ‘0’}}
+Output: 
+YES
+2 1  2 1 2
+
+
+Explanation: 
+
+                          (1)<--------1--------(2)
+                         \  ^    --------------->/ ^             
+                         \   \                  /  /        
+                          \    \              /  /              
+                            \    \           /  /                 
+                              \    \        /  /                   
+                                \    \     /  /                             
+                                  \    \ \/ / 
+                                  \/
+                                       (3)
+                                       
+       The path followed is “1111” which is palindrome.
+
+
+
+Input: N = 2, K = 6
+edges[] = { { 1, 2 }, ‘1’ }, { { 2, 1 }, ‘0’ } 
+Output: NO
+
+
+
+Approach: The above problem can be solved by considering different cases and constructing the respective answers. Follow the below steps to solve the problem:
+
+If K is odd:
+There exists a palindromic path in every case if K is odd.
+It can be constructed by selecting any two nodes and looping through them K times, For example, for  K = 5:  “00000”, “11111”, “10101”, “01010”.
+If K is even:
+Now the problem can be divided into two cases:
+If Two nodes (i, j) exists such that the weight of edge i->j is equal to the weight of edge j->i. Then the answer can be constructed by looping through them until path length K is achieved.
+Otherwise, if there exist three different nodes (i, j, k) such that the weight of edge i->j is equal to the weight of edge j->k. Then these three nodes can be placed in the centre of the path, like …i->j->i->j->k->j->k…, to create an even length palindrome.
+Print the answer according to the above observation.
+                                       
+                                      
