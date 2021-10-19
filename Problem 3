@@ -46,5 +46,8 @@ Now the problem can be divided into two cases:
 If Two nodes (i, j) exists such that the weight of edge i->j is equal to the weight of edge j->i. Then the answer can be constructed by looping through them until path length K is achieved.
 Otherwise, if there exist three different nodes (i, j, k) such that the weight of edge i->j is equal to the weight of edge j->k. Then these three nodes can be placed in the centre of the path, like …i->j->i->j->k->j->k…, to create an even length palindrome.
 Print the answer according to the above observation.
+
+
+*you can use any language.
                                        
                                       
